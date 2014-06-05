@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted."
+    flash[:success] = "Usuario eliminado."
     redirect_to users_url
   end
 
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
 
-    # Before filters
+   
 
     def signed_in_user
       unless signed_in?

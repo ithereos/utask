@@ -1,15 +1,31 @@
-<h1>Listas de tareas creadas</h1>
+<h1>Listas de tareas</h1>
 
-<ul>
-	<% @lists.each do |list| %>
-	<li>
-		<%= link_to list.name, list_path(list) %> |
-		<%= link_to "Eliminar", list, method: :delete,
-                                  data: { confirm: "Confirmar la eliminación del cliente" } %>
-        <%= link_to "Editar", edit_list_path(list) %>
 
-	</li>
-	<% end %>
 
-	<%= link_to "Nueva lista", new_list_path, class: "btn btn-large btn-primary" %>
-</ul>
+
+<table class="table table-striped">
+		
+		 
+		<% @lists.each do |list| %>		
+		<tr>
+			<td>
+				<span><%= link_to list.name, list_path(list) %></span>
+				<span style="float:right"><%= link_to "Editar", edit_list_path(list), class: "btn btn-mini btn-primary" %>  </span>
+				<span style="float:right"><%= link_to "Eliminar", list, class: "btn btn-mini btn-primary", method: :delete,
+                                  data: { confirm: "Confirme la elminación del usuario" } %>
+                </span> 
+			</td>
+			
+			
+		</tr>
+
+		
+		<% end %>
+
+
+ 
+	</table>
+	
+
+
+<%= link_to "Nueva lista", new_list_path, class: "btn btn-large btn-primary" %>
