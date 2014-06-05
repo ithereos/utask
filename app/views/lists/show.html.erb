@@ -1,2 +1,11 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1>Mira papá esta es tu lista</h1>
+
+Estas son tus tareas:
+
+<% @list.tasks.each do |task|  %>
+<%= task.description %>
+<%= link_to "Eliminar", task, method: :delete,
+                                  data: { confirm: "Confirmar la eliminación del cliente" } %>
+<%= link_to "Editar", edit_task_path(task) %>
+<% end %>
+<%= link_to "Nueva tarea", new_task_path(list_id: @list.id), class: "btn btn-large btn-primary" %>
