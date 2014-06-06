@@ -1,11 +1,22 @@
-<h1>Mira papá esta es tu lista</h1>
+<h1><%= @list.name %></h1>
 
-Estas son tus tareas:
 
-<% @list.tasks.each do |task|  %>
-<%= task.description %>
-<%= link_to "Eliminar", task, method: :delete,
-                                  data: { confirm: "Confirmar la eliminación del cliente" } %>
-<%= link_to "Editar", edit_task_path(task) %>
-<% end %>
+
+<table class="table table-striped">
+		
+		 
+		<% @list.tasks.each do |task| %>		
+		<tr>
+			<td>
+				<span><%= task.description %></span>
+				<span style="float:right;padding-left:2px"><%= link_to "Editar", edit_task_path(task), class: "btn btn-mini btn-success" %>  </span>
+				<span style="float:right"><%= link_to "Eliminar", task, class: "btn btn-mini btn-danger", method: :delete,
+                                  data: { confirm: "Está seguro que quiere eliminar la tarea?" } %>
+                </span> 
+			</td>
+			
+			
+		</tr>		
+		<% end %> 
+	</table>
 <%= link_to "Nueva tarea", new_task_path(list_id: @list.id), class: "btn btn-large btn-primary" %>

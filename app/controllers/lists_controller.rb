@@ -28,7 +28,7 @@ class ListsController < ApplicationController
 
   def destroy
     List.find(params[:id]).destroy
-    flash[:success] = "User deleted."
+    flash[:success] = "Lista eliminada"
     redirect_to lists_url
   end
 
