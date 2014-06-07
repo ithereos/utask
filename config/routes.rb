@@ -2,6 +2,8 @@ SampleApp::Application.routes.draw do
  
   
 
+  resources :categories
+
   root  'sessions#new'
 
   resources :users

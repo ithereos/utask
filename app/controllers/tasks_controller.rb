@@ -21,8 +21,8 @@ class TasksController < ApplicationController
 
    def destroy
     Task.find(params[:id]).destroy
-    flash[:success] = "User deleted."
-    redirect_to tasks_url
+    flash[:success] = "Tarea eliminada"
+    redirect_to lists_path
   end
 
   def edit
@@ -35,6 +35,6 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:description,:list_id)
+      params.require(:task).permit(:description,:list_id,:duedate)
     end
 end
